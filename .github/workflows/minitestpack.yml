@@ -1,0 +1,21 @@
+name: Mini-Pack-test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Start Building...
+    runs-on: windows-latest
+  
+    
+    steps:
+      - name: Downloading & Installing Essentials
+        run: |
+          Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/e2ix7rqy1ldtmk9ccc9vw/Downloads1.bat?rlkey=yf3kkt43tj689pqy6glh2qgse&dl=1" -OutFile "Downloads1.bat"
+          cmd /c Downloads1.bat
+      - name: Log In To AnyDesk
+        run: cmd /c show.bat
+
+      - name: Time Counter
+        run: python time.py
